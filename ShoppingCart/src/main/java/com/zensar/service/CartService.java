@@ -19,10 +19,11 @@ public class CartService {
 			return this.dao.save(cart);
 		}
 		
-		public boolean removeProductFromCart(int id) {
+		public boolean removeProductFromCart(int productId) {
 			boolean result = false;
+			Optional<Cart> cart= this.dao.findById(productId);
 			try {
-				this.dao.deleteById(id);
+				this.dao.deleteById(productId);
 				result = true;
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -47,8 +48,8 @@ public class CartService {
 			return result;
 		}
 
-		public List<Cart> getAllCartProducts(Customer customer) {
-			return this.dao.findCartByCustomer(customer);
+		public List<Cart> getAllCartProducts(Cart cart) {
+			return this.dao.findAll();
 		}
 		
 		public Cart viewCartById(int customerId) {

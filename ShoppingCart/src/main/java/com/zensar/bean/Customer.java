@@ -8,7 +8,7 @@ import javax.persistence.Transient;
 public class Customer {
 
 	@Column(name = "customer_id")
-	private String customerId;
+	private int customerId;
 	@Transient
 	private String firstName;
 	@Transient
@@ -20,10 +20,10 @@ public class Customer {
 	@Transient
 	private String email;
 	
-	public String getCustomerId() {
+	public int getCustomerId() {
 		return customerId;
 	}
-	public void setCustomerId(String customerId) {
+	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
 	}
 	public String getFirstName() {

@@ -7,7 +7,7 @@ import javax.persistence.Transient;
 public class Product {
 
 	@Column(name = "product_id")
-	String productId;
+	int productId;
 	@Transient
 	private String productName;
 	@Transient
@@ -24,10 +24,10 @@ public class Product {
 	private int quantity;
 	@Transient
 	private Category category;
-	public String getProductId() {
+	public int getProductId() {
 		return productId;
 	}
-	public void setProductId(String productId) {
+	public void setProductId(int productId) {
 		this.productId = productId;
 	}
 	public String getProductName() {

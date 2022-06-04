@@ -3,27 +3,35 @@ package com.zensar.bean;
 public class CartRequest {
 
 	private int id;
-	private String customerId;
-	private String productId;
+	private int customerId;
+	private int productId;
 	private int quantity;
 	
+	public CartRequest(int id, int customerId, int productId, int quantity) {
+		super();
+		this.id = id;
+		this.customerId = customerId;
+		this.productId = productId;
+		this.quantity = quantity;
+	}
+
 	public CartRequest() {
 		super();
 	}
 	
-	public String getCustomerId() {
+	public int getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerId(String customerId) {
+	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
 	}
 
-	public String getProductId() {
+	public int getProductId() {
 		return productId;
 	}
 
-	public void setProductId(String productId) {
+	public void setProductId(int productId) {
 		this.productId = productId;
 	}
 

@@ -7,10 +7,10 @@ import javax.persistence.Transient;
 @Embeddable
 public class Category {
 	@Column(name = "category_id")
-	private String catId;
+	private int catId;
 	@Transient
 	private String categoryName;
-	public Category(String catId, String categoryName) {
+	public Category(int catId, String categoryName) {
 		super();
 		this.catId = catId;
 		this.categoryName = categoryName;
@@ -18,10 +18,10 @@ public class Category {
 	public Category() {
 		super();
 	}
-	public String getCatId() {
+	public int getCatId() {
 		return catId;
 	}
-	public void setCatId(String catId) {
+	public void setCatId(int catId) {
 		this.catId = catId;
 	}
 	public String getCategoryName() {

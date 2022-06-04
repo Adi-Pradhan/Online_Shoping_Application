@@ -11,7 +11,9 @@ import com.zensar.bean.Product;
 @Repository
 public interface CartDAO extends JpaRepository<Cart, Integer> {
 
-	public List<Cart> findCartByCustomer(Customer customer);
+	public List<Cart> findCartByCustomer(Cart cart);
 	
 	public  Cart findByCustomer(Customer customer);
+	
+	public Cart findCartByProduct(Product product);
 }

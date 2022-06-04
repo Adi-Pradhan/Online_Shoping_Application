@@ -1,7 +1,5 @@
 package com.zensar.bean;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -10,9 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,20 +16,31 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int cartId;
-//	@ManyToOne
-//    @JoinColumn(name="customer_id")
 	@Embedded
 	private Customer customer;
-//	@ManyToOne
-//	@JoinColumn(name="product_id")
     @Embedded
 	private Product product;
 	@Column
 	private int quantity;
-//	@ManyToMany
-//	@Embedded
-//	private Map<Product, Integer> productsMap = new HashMap<>();
 	
+	
+	public Cart(int quantity) {
+		super();
+		this.quantity = quantity;
+	}
+
+	public Cart() {
+		super();
+	}
+
+	public Cart(int cartId, Customer customer, Product product, int quantity) {
+		super();
+		this.cartId = cartId;
+		this.customer = customer;
+		this.product = product;
+		this.quantity = quantity;
+	}
+
 	public int getCartId() {
 		return cartId;
 		}
@@ -63,15 +69,6 @@ public class Cart {
 		public int getQuantity() {
 			return quantity;
 		}
-
-//		public Map<Product, Integer> getProductsMap() {
-//			return productsMap;
-//		}
-//
-//		public void setProductsMap(Map<Product, Integer> productsMap) {
-//			this.productsMap = productsMap;
-//		}
-
 		public void setQuantity(int quantity) {
 			this.quantity = quantity;
 		}
