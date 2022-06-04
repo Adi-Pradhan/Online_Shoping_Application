@@ -13,10 +13,10 @@ import javax.persistence.Id;
 public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String categoryId;
+	private int categoryId;
 	@Column
 	private String categoryName;
-	public Category(String categoryId, String categoryName) {
+	public Category(int categoryId, String categoryName) {
 		super();
 		this.categoryId = categoryId;
 		this.categoryName = categoryName;
@@ -32,10 +32,10 @@ public class Category {
 		super();
 	}
 
-	public String getCategoryId() {
+	public int getCategoryId() {
 		return categoryId;
 	}
-	public void setCategoryId(String categoryId) {
+	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
 	public String getCategoryName() {
