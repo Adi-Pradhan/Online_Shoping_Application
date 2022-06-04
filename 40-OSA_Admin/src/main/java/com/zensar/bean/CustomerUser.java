@@ -4,24 +4,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 @Entity
-public class Admin {
+public class CustomerUser {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int adminId;
-	private String userName;
+	private int userId;
+	private int userName;
 	private String password;
 	public int getAdminId() {
-		return adminId;
+		return userId;
 	}
-	public void setAdminId(int adminId) {
-		this.adminId = adminId;
+	public void setuserId(int userId) {
+		this.userId = userId;
 	}
-	public String getUserName() {
+	public int getUserName() {
 		return userName;
 	}
-	public void setUserName(String userName) {
+	public void setUserName(int userName) {
 		this.userName = userName;
 	}
 	public String getPassword() {
@@ -32,17 +31,16 @@ public class Admin {
 	}
 	@Override
 	public String toString() {
-		return "Admin [adminId=" + adminId + ", userName=" + userName + ", password=" + password + "]";
+		return "user [userId=" + userId + ", userName=" + userName + ", password=" + password + "]";
 	}
-	public Admin() {
+	public CustomerUser() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Admin(int adminId, String userName, String password) {
+	public CustomerUser(int userId, int userName, String password) {
 		super();
-		this.adminId = adminId;
+		this.userId = userId;
 		this.userName = userName;
 		this.password = password;
 	}
-	
 }
