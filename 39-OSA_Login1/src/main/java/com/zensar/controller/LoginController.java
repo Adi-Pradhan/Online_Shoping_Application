@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 
 import com.zensar.bean.Admin;
-import com.zensar.bean.Customer;
+import com.zensar.bean.CustomerUser;
 
 @RestController
 public class LoginController {
@@ -37,14 +37,14 @@ public class LoginController {
 
 	}
 	else if(id==2) {
-		List<Customer> allCustomers;
-		String url = "http://localhost:5001/viewAllAdmin" ;
-		allCustomers= (List<Customer>) restTemplate.getForObject(url, Customer.class);
+		List<CustomerUser> allCustomers;
+		String url = "http://localhost:5007/viewAllCustomerUser" ;
+		allCustomers= (List<CustomerUser>) restTemplate.getForObject(url, CustomerUser.class);
 	
-	for (Customer customer : allCustomers) {
+	for (CustomerUser customer : allCustomers) {
 		int A = Integer.parseInt(credentials[0]);	
-	if(customer.getCustomerId()==A) {
-	if(customer.getFirstName().equalsIgnoreCase(credentials[1]))
+	if(customer.getUserName()==A) {
+	if(customer.getPassword().equalsIgnoreCase(credentials[1]))
 	return true;
 	}
   }
