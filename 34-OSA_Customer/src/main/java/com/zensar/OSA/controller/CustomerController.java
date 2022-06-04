@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -20,6 +21,7 @@ import com.zensar.OSA.service.ICustomerService;
 
 
 @RestController
+@RequestMapping("customer")
 public class CustomerController {
 
 	@Autowired
@@ -37,14 +39,23 @@ public class CustomerController {
 		
 		RestTemplate restTemplate = new RestTemplate();
 		Address address;
-		String url = "http://localhost:5002/viewAddressById/" + request.getCustomerReqId();
+		String url = "http://localhost:5002/address/viewAddressById/" + request.getCustomerReqId();
 		address= restTemplate.getForObject(url, Address.class);
-		
+		System.out.print(address.toString());
+//		Address address2=new Address();
+//		address2.setAddressId(address2.getAddressId());
+//		address2.setBuildingName(address2.getBuildingName());
+//		address2.setCity(address2.getCity());
+//		address2.setCountry(address2.getCountry());
+//		address2.setPincode(address2.getPincode());
+//		address2.setState(address2.getState());
+//		address2.setStreetNo(address2.getStreetNo());
 		customer.setAddress(address);
-		return this.iLoginService.addCustomer(customer);
+		 this.iLoginService.addCustomer(customer);
+		 return customer;
 	}
-	@PutMapping("/updateCustomer")
-	public Customer updateCustomer(@RequestBody Customer customer) {
+	@PutMapping("/updateCustomer/")
+	public Customer updateCustomer(Customer customer) {
 		return this.iLoginService.updateCustomer(customer);
 	}
 	@DeleteMapping("/removeCustomer")
